@@ -9,29 +9,43 @@ const JobCard = ({ job }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            whileHover={{
-                y: -5,
-                boxShadow: "0 8px 25px rgba(96,165,250,0.45)",
-            }}
-            className="job-card flex flex-col"
+            whileHover={{ y: -6 }}
+            className="
+        bg-base-100 text-base-content
+        border border-base-300
+        rounded-xl p-4
+        shadow-md hover:shadow-xl
+        transition-all duration-300
+        flex flex-col
+      "
         >
-            <img src={coverImage} alt={title} className="job-cover" />
+            <img
+                src={coverImage}
+                alt={title}
+                className="h-44 w-full object-cover rounded-lg"
+            />
 
-            <h3 className="job-title mt-3">{title}</h3>
+            <h3 className="text-lg font-semibold mt-3">
+                {title}
+            </h3>
 
-            <p className="job-meta">
-                <span className="font-semibold text-slate-300">Category:</span> {category}
+            <p className="text-sm opacity-70">
+                <span className="font-medium">Category:</span> {category}
             </p>
 
-            <p className="job-meta">
-                <span className="font-semibold text-slate-300">Posted By:</span> {postedBy}
+            <p className="text-sm opacity-70">
+                <span className="font-medium">Posted By:</span> {postedBy}
             </p>
 
-            <p className="job-meta line-clamp-2">{summary}</p>
+            <p className="text-sm mt-1 line-clamp-2 opacity-80">
+                {summary}
+            </p>
 
-            <div className="job-footer mt-3">
+            <div className="mt-auto pt-3">
                 <Link to={`/allJobs/${_id}`}>
-                    <button className="btn-primary btn-sm">View Details</button>
+                    <button className="btn btn-primary btn-sm w-full">
+                        View Details
+                    </button>
                 </Link>
             </div>
         </Motion.div>

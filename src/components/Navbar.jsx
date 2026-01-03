@@ -2,6 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { HiMenuAlt3 } from "react-icons/hi";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -11,7 +12,8 @@ const Navbar = () => {
         isActive ? "text-blue-400 font-semibold" : "text-slate-300";
 
     return (
-        <header className="navbar-glass fixed top-0 left-0 w-full z-50">
+        <header className="fixed top-0 left-0 w-full z-50 bg-base-100 text-base-content backdrop-blur-md">
+
             <div className="container-max flex items-center justify-between py-3">
 
             
@@ -35,6 +37,8 @@ const Navbar = () => {
 
                 
                 <div className="hidden md:flex items-center gap-4">
+                    <ThemeToggle />
+
                     {!user && (
                         <>
                             <Link to="/login">

@@ -15,8 +15,6 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f172a 0%, #111827 40%, #1e293b 70%, #0f172a 100%);
-    color: #e2e8f0;
 }
 
 
@@ -33,8 +31,6 @@ body {
     left: 0;
     width: 100%;
     z-index: 50;
-
-    background: rgba(15, 23, 42, 0.55);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }

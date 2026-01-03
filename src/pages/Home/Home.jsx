@@ -19,7 +19,7 @@ const Home = () => {
 
     useEffect(() => {
         axios.get("/jobs")
-            .then(res => setJobs(res.data.slice(0, 6)))
+            .then(res => setJobs(res.data.slice(0, 8)))
             .catch(() => console.log("Failed to load jobs"));
     }, []);
 
@@ -109,7 +109,7 @@ const Home = () => {
                             <div className="loading mx-auto"></div>
                         </div>
                     ) : (
-                        <div className="jobs-grid">
+                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                             {jobs.map(job => (
                                 <JobCard key={job._id} job={job} />
                             ))}
@@ -123,7 +123,7 @@ const Home = () => {
                     </h2>
 
                     <div className="overflow-hidden relative">
-                        <div className="flex gap-8 animate-marquee">
+                        <div className="flex gap-4 animate-marquee">
 
                             <CategoryCard img="https://i.ibb.co/Fcyjfmk/Launch-a-Website-That-Works-While-You-Sleep.jpg" title="Web Development" />
                             <CategoryCard img="https://i.ibb.co/G31dDSxc/NES-AGENCY.jpg" title="Digital Marketing" />

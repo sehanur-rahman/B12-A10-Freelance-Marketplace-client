@@ -50,55 +50,77 @@ const JobDetails = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto mt-4 bg-slate-800/40 p-4 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md">
 
-            <img
-                src={job.coverImage}
-                alt={job.title}
-                className="w-full h-64 object-cover rounded-xl mb-4"
-            />
+        <div className="max-w-6xl mx-auto mt-6 px-4">
+            <div
+                className="
+        grid grid-cols-1 md:grid-cols-2 gap-8
+        bg-base-100 text-base-content
+        border border-base-300
+        rounded-2xl p-6
+        shadow-lg
+      "
+            >
+                {/* LEFT: Image */}
+                <div className="w-full">
+                    <img
+                        src={job.coverImage}
+                        alt={job.title}
+                        className="
+            w-full h-[260px] md:h-full
+            object-cover rounded-xl
+          "
+                    />
+                </div>
 
-            <h1 className="text-4xl font-bold site-logo mb-3">
-                {job.title}
-            </h1>
+                {/* RIGHT: Content */}
+                <div className="flex flex-col">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                        {job.title}
+                    </h1>
 
-            <div className="space-y-2 text-slate-300 mb-4">
-                <p>
-                    <span className="font-semibold text-slate-200">Category:</span>{" "}
-                    {job.category}
-                </p>
-                <p>
-                    <span className="font-semibold text-slate-200">Posted By:</span>{" "}
-                    {job.postedBy}
-                </p>
-                <p>
-                    <span className="font-semibold text-slate-200">Posted At:</span>{" "}
-                    {new Date(job.postedAt).toLocaleString()}
-                </p>
-            </div>
+                    <div className="space-y-2 text-sm md:text-base opacity-80 mb-5">
+                        <p>
+                            <span className="font-semibold">Category:</span>{" "}
+                            {job.category}
+                        </p>
+                        <p>
+                            <span className="font-semibold">Posted By:</span>{" "}
+                            {job.postedBy}
+                        </p>
+                        <p>
+                            <span className="font-semibold">Posted At:</span>{" "}
+                            {new Date(job.postedAt).toLocaleString()}
+                        </p>
+                    </div>
 
-            <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                {job.summary}
-            </p>
+                    <p className="leading-relaxed opacity-90 mb-6">
+                        {job.summary}
+                    </p>
 
-            <div className="flex gap-4">
-                <button
-                    onClick={acceptJob}
-                    disabled={accepting}
-                    className="px-6 py-3 bg-linear-to-r from-blue-500 to-fuchsia-500 text-white rounded-xl font-medium hover:opacity-90 transition shadow-lg"
-                >
-                    {accepting ? "Processing…" : "Accept Job"}
-                </button>
+                    {/* Buttons */}
+                    <div className="mt-auto flex flex-wrap gap-4">
+                        <button
+                            onClick={acceptJob}
+                            disabled={accepting}
+                            className="btn btn-primary"
+                        >
+                            {accepting ? "Processing..." : "Accept Job"}
+                        </button>
 
-                <button
-                    onClick={() => navigate(-1)}
-                    className="px-6 py-3 border border-slate-500 text-slate-200 rounded-xl hover:bg-slate-700/40 transition"
-                >
-                    Back
-                </button>
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="btn btn-outline"
+                        >
+                            Back
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
+
+
 };
 
 export default JobDetails;

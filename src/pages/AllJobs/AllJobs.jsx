@@ -50,7 +50,7 @@ const AllJobs = () => {
                 </select>
             </div>
 
-            <div className="jobs-grid">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {jobs.map((job) => (
                     <JobCard key={job._id} job={job} />
                 ))}
